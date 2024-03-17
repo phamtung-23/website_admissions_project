@@ -20,5 +20,6 @@ export const dummyMessage = [
 // export const ipAddress = '172.17.14.102'
 // ip ở nhà
 export const ipAddress = '192.168.100.3'
-// export const ipAddress = '192.168.12.157'
+
+// export const ipAddress = '192.168.12.120'
 // export const ipAddress = '192.168.1.3'

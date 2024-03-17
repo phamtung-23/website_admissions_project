@@ -33,7 +33,7 @@ export default function ChatPdfScreen() {
   const [inputText, setInputText] = useState('');
   const [index, setIndex] = useState(0);
   const ScrollViewRef = useRef();
-  const [selectedDropdownValue, setSelectedDropdownValue] = useState('all');
+  const [selectedDropdownValue, setSelectedDropdownValue] = useState('DTT');
 
   const navigation = useNavigation()
 
@@ -43,7 +43,7 @@ export default function ChatPdfScreen() {
     })
     const fetchInJectPdf = async ()=>{
       const res = await client.post(`http://${ipAddress}:3300/chat/injectPdf`,{
-        filename:"all.pdf"
+        filename:"DTT.pdf"
       })
       console.log(res.data)
     }
@@ -55,7 +55,7 @@ export default function ChatPdfScreen() {
       headers:{}
     })
     const fetchMess = async ()=>{
-      const res = await client.get(`http://${ipAddress}:3300/api/messagesPdf/${user.id}/all`)
+      const res = await client.get(`http://${ipAddress}:3300/api/messagesPdf/${user.id}/DTT`)
       setMessages(res.data.messages)
     }
     fetchMess()
@@ -167,9 +167,9 @@ export default function ChatPdfScreen() {
               <Image source={require('../../../assets/chatPDF.png')} style={{
                   height: hp(3),
                   width: hp(3),
-                  paddingRight: 3
+                  paddingRight: 5
                 }}/>
-              <Text style={styles.headerTitle}>AI Chat Assistant</Text>
+              <Text style={styles.headerTitle}>Chat Info University</Text>
             </View>
 
             <View style={[styles.headerAction, { alignItems: 'flex-end' }]}>
@@ -276,6 +276,7 @@ const styles = StyleSheet.create({
     fontSize: 19,
     fontWeight: '600',
     color: '#000',
+    marginLeft: 4
   },
   input: {
     marginBottom: 16,

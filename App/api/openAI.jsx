@@ -48,6 +48,28 @@ export const callAPIChatPdf = async (prompt)=>{
   }
 }
 
+export const callAPIChatPdfDTT = async (prompt)=>{
+  try {
+    const client1 = axios.create({
+      headers:{
+        "Content-Type": "application/json",
+      }
+    })
+    const res = await client1.post(`http://${ipAddress}:3000/api/v1/prediction/47ffa23d-89f8-4179-8e05-c334e633e685`,{
+      question: prompt
+    })
+    // console.log(res.data)
+    const result = {
+      role: 'assistant',
+      content: res.data.text
+    } 
+    return ({success: true, data: result})
+  } catch (error) {
+    console.log('error:', error)
+    return ({success: false, msd: error.message})
+  }
+}
+
 
 
 

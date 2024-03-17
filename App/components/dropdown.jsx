@@ -9,7 +9,7 @@ import { ipAddress } from '../constants';
   const DropdownComponent = ({ selectedDropdownValue, onValueChange  }) => {
     const { data, loading, error } = useFetch(`http://${ipAddress}:3300/api/university?limit=`)
     let dataDropdown = [
-      { label: "All University", value: 'all' },
+      // { label: "All University", value: 'all' },
     ]
     data.map((item) => {
       dataDropdown.push({ label: item.name.vi, value: item.code})
